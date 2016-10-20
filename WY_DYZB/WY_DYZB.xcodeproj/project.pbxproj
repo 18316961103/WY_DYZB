@@ -60,6 +60,7 @@
 		18C6A4531DB86FB300BE7519 /* WY_DYZB */ = {
 			isa = PBXGroup;
 			children = (
+				18C6A46E1DB8A86A00BE7519 /* Classes */,
 				18C6A4571DB86FB300BE7519 /* AppDelegate.h */,
 				18C6A4581DB86FB300BE7519 /* AppDelegate.m */,
 				18C6A45A1DB86FB300BE7519 /* ViewController.h */,
@@ -80,6 +81,181 @@
 				18C6A4551DB86FB300BE7519 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18C6A46E1DB8A86A00BE7519 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A4741DB8A91400BE7519 /* Main(主要) */,
+				18C6A4731DB8A90E00BE7519 /* Home(首页) */,
+				18C6A4721DB8A90700BE7519 /* Live(直播) */,
+				18C6A4711DB8A8FA00BE7519 /* Follow(关注) */,
+				18C6A4701DB8A8EF00BE7519 /* Mine(我的) */,
+				18C6A46F1DB8A8E800BE7519 /* Tools(工具) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18C6A46F1DB8A8E800BE7519 /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Tools(工具)";
+			sourceTree = "<group>";
+		};
+		18C6A4701DB8A8EF00BE7519 /* Mine(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A4831DB8ACE000BE7519 /* Model */,
+				18C6A4821DB8ACD800BE7519 /* View */,
+				18C6A4811DB8ACD200BE7519 /* Controller */,
+			);
+			path = "Mine(我的)";
+			sourceTree = "<group>";
+		};
+		18C6A4711DB8A8FA00BE7519 /* Follow(关注) */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A4801DB8ACC400BE7519 /* Model */,
+				18C6A47F1DB8ACBE00BE7519 /* View */,
+				18C6A47E1DB8ACB900BE7519 /* Controller */,
+			);
+			path = "Follow(关注)";
+			sourceTree = "<group>";
+		};
+		18C6A4721DB8A90700BE7519 /* Live(直播) */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A47D1DB8ACAE00BE7519 /* Model */,
+				18C6A47C1DB8ACA900BE7519 /* View */,
+				18C6A47B1DB8ACA200BE7519 /* Controller */,
+			);
+			path = "Live(直播)";
+			sourceTree = "<group>";
+		};
+		18C6A4731DB8A90E00BE7519 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A47A1DB8AC4C00BE7519 /* Model */,
+				18C6A4791DB8AC4300BE7519 /* View */,
+				18C6A4781DB8AC3A00BE7519 /* Controller */,
+			);
+			path = "Home(首页)";
+			sourceTree = "<group>";
+		};
+		18C6A4741DB8A91400BE7519 /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				18C6A4771DB8AC0C00BE7519 /* Model */,
+				18C6A4761DB8AC0500BE7519 /* View */,
+				18C6A4751DB8ABFC00BE7519 /* Controller */,
+			);
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		18C6A4751DB8ABFC00BE7519 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18C6A4761DB8AC0500BE7519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C6A4771DB8AC0C00BE7519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18C6A4781DB8AC3A00BE7519 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18C6A4791DB8AC4300BE7519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C6A47A1DB8AC4C00BE7519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18C6A47B1DB8ACA200BE7519 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18C6A47C1DB8ACA900BE7519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C6A47D1DB8ACAE00BE7519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18C6A47E1DB8ACB900BE7519 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18C6A47F1DB8ACBE00BE7519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C6A4801DB8ACC400BE7519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18C6A4811DB8ACD200BE7519 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18C6A4821DB8ACD800BE7519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18C6A4831DB8ACE000BE7519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +450,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = WY_DYZB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple.WY-DYZB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -285,7 +463,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = WY_DYZB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "apple.WY-DYZB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
