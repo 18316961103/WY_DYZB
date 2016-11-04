@@ -1,0 +1,41 @@
+//
+//  PrefixHeader.pch
+//  WY_DYZB
+//
+//  Created by apple on 16/10/21.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Common.h"
+#import "UIView+Frame.h"
+#import "UIView+Layer.h"
+#import "UIBarButtonItem+NavigationButton.h"
+#import "UIButton+MoreButton.h"
+#import "NSDictionary+Unicode.h"
+
+// 自动布局
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+
+// 网络请求
+#import "AFNetworking.h"
+
+// 请求工具类
+#import "NetworkSingleton.h"
+
+// 转模型
+#import "MJExtension.h"
+
+// 图片缓存
+#import "UIImageView+WebCache.h"
+
+// 改变图片大小 自适应
+#import "UIImage+RescaleImage.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
