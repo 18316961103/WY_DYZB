@@ -45,7 +45,7 @@
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_queue_create("cn.gcd-group.www", DISPATCH_QUEUE_SERIAL);
     
-    // 请求第一部分推荐数据
+    // 请求第一部分最热数据
     dispatch_group_enter(group);
     
     dispatch_group_async(group, queue, ^{
@@ -62,7 +62,7 @@
             
             dispatch_group_leave(group);
 
-            NSLog_Cus(@"推荐数据tuijianArray=======%@",tuijianArray);
+            NSLog_Cus(@"推荐数据tuijianArray.count=======%ld",tuijianArray.count);
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
@@ -91,7 +91,7 @@
             
             dispatch_group_leave(group);
 
-            NSLog_Cus(@"颜值数据yanzhiArray=======%@",yanzhiArray);
+            NSLog_Cus(@"颜值数据yanzhiArray.count=======%ld",yanzhiArray.count);
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
@@ -119,7 +119,7 @@
             
             dispatch_group_leave(group);
 
-            NSLog_Cus(@"其他数据otherArray=======%@",otherArray);
+            NSLog_Cus(@"其他数据otherArray.count=======%ld",otherArray.count);
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error){
             NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
@@ -146,6 +146,26 @@
     });
 }
 
+#pragma mark - 获取首页-推荐-无限轮播的数据
+- (void)getRecommendCycleDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    AFHTTPRequestOperationManager *manager = [self baseHttpRequest];
+    
+    NSString *url = @"http://www.douyutv.com/api/v1/slide/6";
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];      // IOS9之前会警告
+
+    NSDictionary *userInfo = @{@"version":@"2.300"};
+
+    [manager GET:url parameters:userInfo success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        successBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        NSLog_Cus(@"errorStr=====%@",errorStr);
+        failureBlock(errorStr);
+    }];
+    
+}
 #pragma mark - 获取当前时间戳
 - (NSString *)GetNowTimes
 {

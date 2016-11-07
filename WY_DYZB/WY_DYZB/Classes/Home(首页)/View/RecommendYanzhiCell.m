@@ -71,8 +71,8 @@
         label.textAlignment = NSTextAlignmentRight;
         label.textColor = kWhiteColor;
         label.font = kFont(11);
+        label.backgroundColor = kRGBAColor(0, 0, 0, 0.3);
         _peopleCountLab = label;
-        
         _peopleCountLab.text = @"3.2万";
     }
     return _peopleCountLab;
@@ -168,7 +168,7 @@
     
     self.locationImageView.sd_layout
     .rightSpaceToView(self.locationLab , 3)
-    .topSpaceToView(_liveImageView , 8)
+    .topSpaceToView(_liveImageView , 7)
     .widthIs(15)
     .heightIs(15);
     
@@ -189,8 +189,17 @@
     
     _yanzhiModel = yanzhiModel;
     if (_yanzhiModel) {
-        [_liveImageView sd_setImageWithURL:[NSURL URLWithString:_yanzhiModel.vertical_src] placeholderImage:kDefaultImage]; // 直播图片
-        _peopleCountLab.text = _yanzhiModel.online;     // 在线人数
+        [_liveImageView sd_setImageWithURL:[NSURL URLWithString:_yanzhiModel.vertical_src] placeholderImage:[UIImage imageNamed:@"live_cell_default_phone"]]; // 直播图片
+        NSString *onLineStr = @"";
+        NSInteger onLine = [_yanzhiModel.online integerValue];
+        if (onLine >= 10000) {// 在线人数大于10000，转换以万为单位
+            double temp = (double)onLine / (double)10000.0;
+            onLineStr = [NSString stringWithFormat:@"%0.1f万",temp];
+            onLineStr = [onLineStr stringByReplacingOccurrencesOfString:@".0" withString:@""];  // 排除出现.0万的情况
+        }else{// 在线人数小于10000，直接显示数字
+            onLineStr = [NSString stringWithFormat:@"%ld",onLine];
+        }
+        _peopleCountLab.text = onLineStr;               // 在线人数
         _anchorNameLab.text = _yanzhiModel.nickname;    // 主播名字
         _locationLab.text = _yanzhiModel.anchor_city;   // 主播城市
     }

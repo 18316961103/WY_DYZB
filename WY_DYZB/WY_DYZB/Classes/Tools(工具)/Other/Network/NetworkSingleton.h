@@ -18,7 +18,8 @@ typedef void(^FailureBlock)(NSString *error);
 + (NetworkSingleton *)sharedManager;
 - (AFHTTPRequestOperationManager *)baseHttpRequest;
 
-#pragma mark - 获取首页的推荐、颜值、其他的数据
+/** 获取首页的推荐、颜值、其他的数据*/
 - (void)getRecommendDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
-
+/** 获取首页-推荐-无限轮播的数据*/
+- (void)getRecommendCycleDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end

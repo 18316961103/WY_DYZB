@@ -10,13 +10,15 @@
 #import "RecommendReusableView.h"
 #import "RecommendCollectionViewCell.h"
 #import "RecommendYanzhiCell.h"
+#import "WYCarouselView.h"
 
-#define kItemMargin 10
-#define kItemW ((kScreenWidth - 3 * kItemMargin) / 2)
-#define kNormalItemH (kItemW * 3 / 4)
-#define kPrettyItemH (kItemW * 4 / 3)
-#define kHeaderViewH 40
-#define kFooterViewH 10
+#define kItemMargin 10                                  // cell的间距
+#define kItemW ((kScreenWidth - 3 * kItemMargin) / 2)   // cell的宽度
+#define kNormalItemH (kItemW * 3 / 4)   // 普通cell的高度
+#define kPrettyItemH (kItemW * 4 / 3)   // 颜值cell的高度
+#define kHeaderViewH 40             // collectionViewHeader的高度
+#define kFooterViewH 10             // collectionView的footer高度
+#define kCycleHeight 220*KPixel     // 无限轮播图片的高度
 #define kNormalCellId @"CollectionNormalCellId"
 #define kYanZhiCellId @"CollectionYanZhiCellId"
 #define kNormalHeaderId @"CollectionNormalHeaderId"
@@ -24,11 +26,16 @@
 
 @interface RecommendViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 {
+    NSArray *_headerTitleArray; // 标题数组
+    NSMutableArray *_recommendCycleImgUrlArray;    // 无限轮播的图片url数组
+    NSMutableArray *_recommendCycleImgDescribeArray;   // 无限轮播的图片描述数组
     NSArray *_hotArray;         // 最热数据
     NSArray *_yanzhiArray;      // 颜值数据
     NSArray *_otherArray;      // 其他数据
 }
+
 @property (strong, nonatomic) UICollectionView *collectionView;
+@property (strong, nonatomic) WYCarouselView *recommendCycleView;       // 图片轮播的View
 
 @end
 
@@ -42,15 +49,62 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self setUpSubViews];   // 设置子控件
+    [self initData];        // 初始化数据
+    [self sendRequest];     // 发送请求得到推荐数据
     
     // Do any additional setup after loading the view.
+}
+
+#pragma mark  - 初始化数据
+- (void)initData{
+    _headerTitleArray = @[@"最热",@"颜值",@"英雄联盟",@"户外",@"守望先锋",@"数码科技",@"皇室战争",@"星秀",@"鱼教",@"炉石传说",@"DOTA2"];
+    _recommendCycleImgUrlArray = [[NSMutableArray alloc] init];
+    _recommendCycleImgDescribeArray = [[NSMutableArray alloc] init];
+}
+
+#pragma mark - 发送请求得到推荐数据
+- (void)sendRequest{
+    [[NetworkSingleton sharedManager] getRecommendCycleDataWithSuccessBlock:^(id response) {
+        NSArray *dataArray = [response objectForKey:@"data"];
+        for (int i = 0; i < dataArray.count; i++) {
+            NSDictionary *dicInfo = dataArray[i];
+            [_recommendCycleImgUrlArray addObject:[dicInfo objectForKey:@"pic_url"]];
+            [_recommendCycleImgDescribeArray addObject:[NSString stringWithFormat:@"    %@",[dicInfo objectForKey:@"title"]]];
+        }
+        
+        _recommendCycleView.imageArray = _recommendCycleImgUrlArray;
+        _recommendCycleView.describeArray = _recommendCycleImgDescribeArray;
+        
+    } failureBlock:^(NSString *error) {
+        NSLog_Cus(@"error = %@",error);
+    }];
+    
+    [[NetworkSingleton sharedManager] getRecommendDataWithSuccessBlock:^(id response) {
+        NSArray *dataArray = response;
+        
+        NSLog_Cus(@"dataArray.count=====%ld",dataArray.count);
+        
+        if (dataArray.count>0) {
+            _hotArray = dataArray[0];
+            _yanzhiArray = dataArray[1];
+            _otherArray = dataArray[2];
+        }
+        
+        [self setUpSubViews];   // 设置子控件
+
+        [self.collectionView reloadData];   // 刷新界面
+        
+    } failureBlock:^(NSString *error) {
+        
+    }];
 }
 
 #pragma mark - 设置子控件
 - (void)setUpSubViews
 {
     [self.view addSubview:self.collectionView];
+    [self.collectionView addSubview:self.recommendCycleView];
+    self.collectionView.contentInset = UIEdgeInsetsMake(self.recommendCycleView.height, 0, 0, 0);
 }
 
 #pragma mark - 懒加载
@@ -80,6 +134,22 @@
     }
     
     return _collectionView;
+}
+#pragma mark - 无限轮播的图片
+- (WYCarouselView *)recommendCycleView{
+    if (!_recommendCycleView) {
+        _recommendCycleView = [WYCarouselView wyCarouselWithFrame:CGRectMake(0, -kCycleHeight, kScreenWidth, kCycleHeight) imgArray:_recommendCycleImgUrlArray describeArray:_recommendCycleImgDescribeArray imageClickBlock:^(NSInteger currentIndex) {
+            NSLog(@"点击的索引=======%ld",currentIndex);
+        }];
+        
+        // 设置轮播时间,默认3s
+        _recommendCycleView.time = 2;
+        // 设置图片描述向左对齐，默认居中显示
+        _recommendCycleView.describeLab.textAlignment = NSTextAlignmentLeft;
+        //设置分页控件的frame，默认在下方居中
+        _recommendCycleView.pageControl.frame = CGRectMake(_recommendCycleView.frame.size.width - _recommendCycleImgUrlArray.count * 20 - 0, _recommendCycleView.frame.size.height - 20 - 5, _recommendCycleImgUrlArray.count * 20, 20);
+    }
+    return _recommendCycleView;
 }
 
 #pragma mark - UICollectionViewDatasource
@@ -113,7 +183,14 @@
         if(headerView == nil){
             headerView = [[RecommendReusableView alloc] init];
         }
-        
+        if (indexPath.section == 0) {// 最热
+            headerView.iconImageView.image = [UIImage imageNamed:@"home_header_hot"];
+        }else if (indexPath.section == 1){// 颜值
+            headerView.iconImageView.image = [UIImage imageNamed:@"columnYanzhiIcon"];
+        }else{// 其他
+            headerView.iconImageView.image = [UIImage imageNamed:@"home_header_normal"];
+        }
+        headerView.titleLab.text = _headerTitleArray[indexPath.section];
         headerView.backgroundColor = kWhiteColor;
         
         return headerView;
@@ -205,22 +282,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[NetworkSingleton sharedManager] getRecommendDataWithSuccessBlock:^(id response) {
-        NSArray *dataArray = response;
-        
-        NSLog_Cus(@"dataArray.count=====%ld",dataArray.count);
-        
-        if (dataArray.count>0) {
-            _hotArray = dataArray[0];
-            _yanzhiArray = dataArray[1];
-            _otherArray = dataArray[2];
-        }
-        
-        [self.collectionView reloadData];   // 刷新界面
-        
-    } failureBlock:^(NSString *error) {
-        
-    }];
+    
 }
 
 

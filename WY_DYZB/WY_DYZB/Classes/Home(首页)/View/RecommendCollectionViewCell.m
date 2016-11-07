@@ -65,6 +65,7 @@
         
 //        label.frame = CGRectMake(CGRectGetMaxX(_eyeImageView.frame)+5, _eyeImageView.y-3, 40, 20);
         label.textColor = kWhiteColor;
+        label.backgroundColor = kRGBAColor(0, 0, 0, 0.3);
         label.font = kFont(11);
         _peopleCountLab = label;
     }
@@ -156,7 +157,16 @@
     _yanzhiModel = yanzhiModel;
     if (_yanzhiModel) {
         [_liveImageView sd_setImageWithURL:[NSURL URLWithString:_yanzhiModel.vertical_src] placeholderImage:kDefaultImage]; // 直播图片
-        _peopleCountLab.text = _yanzhiModel.online;     // 在线人数
+        NSString *onLineStr = @"";
+        NSInteger onLine = [_yanzhiModel.online integerValue];
+        if (onLine >= 10000) {// 在线人数大于10000，转换以万为单位
+            double temp = (double)onLine / (double)10000.0;
+            onLineStr = [NSString stringWithFormat:@"%0.1f万",temp];
+            onLineStr = [onLineStr stringByReplacingOccurrencesOfString:@".0" withString:@""];  // 排除出现.0万的情况
+        }else{// 在线人数小于10000，直接显示数字
+            onLineStr = [NSString stringWithFormat:@"%ld",onLine];
+        }
+        _peopleCountLab.text = onLineStr;               // 在线人数
         _anchorNameLab.text = _yanzhiModel.nickname;    // 主播名字
         _titleLab.text = _yanzhiModel.room_name;        // 直播标题
     }

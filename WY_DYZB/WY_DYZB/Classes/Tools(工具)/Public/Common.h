@@ -50,7 +50,7 @@
 /***  像素*/
 #define KPixel (kScreenWidth/640)
 /** 默认图片*/
-#define kDefaultImage [UIImage imageNamed:@"Image_online"]
+#define kDefaultImage [UIImage imageNamed:@"Img_default"]
 
 #define kStatusBarH 20
 #define kNavigationBarH 44

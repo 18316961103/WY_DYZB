@@ -18,4 +18,7 @@
 
 @interface RecommendReusableView : UICollectionReusableView
 
+@property (strong, nonatomic) UIImageView *iconImageView;       // 图标
+@property (strong, nonatomic) UILabel *titleLab;       // 标题
+
 @end
