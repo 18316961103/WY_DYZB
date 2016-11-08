@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecommendGameModel.h"
 
 @interface RecommendGameCell : UICollectionViewCell
+
+@property (strong, nonatomic) RecommendGameModel *recommendGameModel;
 
 @end

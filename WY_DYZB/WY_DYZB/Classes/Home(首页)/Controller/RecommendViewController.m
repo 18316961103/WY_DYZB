@@ -11,14 +11,17 @@
 #import "RecommendCollectionViewCell.h"
 #import "RecommendYanzhiCell.h"
 #import "WYCarouselView.h"
+#import "RecommendGameView.h"
 
 #define kItemMargin 10                                  // cell的间距
 #define kItemW ((kScreenWidth - 3 * kItemMargin) / 2)   // cell的宽度
 #define kNormalItemH (kItemW * 3 / 4)   // 普通cell的高度
 #define kPrettyItemH (kItemW * 4 / 3)   // 颜值cell的高度
-#define kHeaderViewH 40             // collectionViewHeader的高度
+#define kHeaderViewH 80*KPixel           // collectionViewHeader的高度
 #define kFooterViewH 10             // collectionView的footer高度
 #define kCycleHeight 220*KPixel     // 无限轮播图片的高度
+#define kGameHeight 130*KPixel     // 游戏展览的高度
+
 #define kNormalCellId @"CollectionNormalCellId"
 #define kYanZhiCellId @"CollectionYanZhiCellId"
 #define kNormalHeaderId @"CollectionNormalHeaderId"
@@ -36,6 +39,7 @@
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) WYCarouselView *recommendCycleView;       // 图片轮播的View
+@property (strong, nonatomic) RecommendGameView *recommendGameView;     // 游戏展览
 
 @end
 
@@ -104,7 +108,9 @@
 {
     [self.view addSubview:self.collectionView];
     [self.collectionView addSubview:self.recommendCycleView];
-    self.collectionView.contentInset = UIEdgeInsetsMake(self.recommendCycleView.height, 0, 0, 0);
+    [self.collectionView addSubview:self.recommendGameView];
+    self.recommendGameView.dataArray = _otherArray;
+    self.collectionView.contentInset = UIEdgeInsetsMake(kCycleHeight + kGameHeight, 0, 0, 0);
 }
 
 #pragma mark - 懒加载
@@ -119,7 +125,7 @@
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = kItemMargin;
         layout.headerReferenceSize = CGSizeMake(kScreenWidth, kHeaderViewH);
-        layout.footerReferenceSize = CGSizeMake(kScreenWidth, kFooterViewH);
+//        layout.footerReferenceSize = CGSizeMake(kScreenWidth, kFooterViewH);
         layout.sectionInset = UIEdgeInsetsMake(0, kItemMargin, 0, kItemMargin);
         
         // 创建collectionview
@@ -130,7 +136,7 @@
         [_collectionView registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:kNormalCellId];  // 注册collectionViewCell
         [_collectionView registerClass:[RecommendYanzhiCell class] forCellWithReuseIdentifier:kYanZhiCellId];  // 注册collectionViewCell
         [_collectionView registerClass:[RecommendReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kNormalHeaderId];  // 注册UICollectionReusableView
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kNormalFooterId];  // 注册UICollectionFooterView
+//        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kNormalFooterId];  // 注册UICollectionFooterView
     }
     
     return _collectionView;
@@ -138,7 +144,7 @@
 #pragma mark - 无限轮播的图片
 - (WYCarouselView *)recommendCycleView{
     if (!_recommendCycleView) {
-        _recommendCycleView = [WYCarouselView wyCarouselWithFrame:CGRectMake(0, -kCycleHeight, kScreenWidth, kCycleHeight) imgArray:_recommendCycleImgUrlArray describeArray:_recommendCycleImgDescribeArray imageClickBlock:^(NSInteger currentIndex) {
+        _recommendCycleView = [WYCarouselView wyCarouselWithFrame:CGRectMake(0, -(kCycleHeight+kGameHeight), kScreenWidth, kCycleHeight) imgArray:_recommendCycleImgUrlArray describeArray:_recommendCycleImgDescribeArray imageClickBlock:^(NSInteger currentIndex) {
             NSLog(@"点击的索引=======%ld",currentIndex);
         }];
         
@@ -150,6 +156,13 @@
         _recommendCycleView.pageControl.frame = CGRectMake(_recommendCycleView.frame.size.width - _recommendCycleImgUrlArray.count * 20 - 0, _recommendCycleView.frame.size.height - 20 - 5, _recommendCycleImgUrlArray.count * 20, 20);
     }
     return _recommendCycleView;
+}
+
+- (RecommendGameView *)recommendGameView{
+    if (!_recommendGameView) {
+        _recommendGameView = [[RecommendGameView alloc] initWithFrame:CGRectMake(0, -kGameHeight, kScreenWidth, kGameHeight)];
+    }
+    return _recommendGameView;
 }
 
 #pragma mark - UICollectionViewDatasource
@@ -169,14 +182,6 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-//    UICollectionReusableView *headerView = [_collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"" forIndexPath:indexPath];
-//    if(headerView == nil)
-//    {
-//        headerView = [[UICollectionReusableView alloc] init];
-//    }
-//    headerView.backgroundColor = [UIColor grayColor];
-//    
-//    return headerView;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]){
         RecommendReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kNormalHeaderId forIndexPath:indexPath];
         
@@ -192,21 +197,8 @@
         }
         headerView.titleLab.text = _headerTitleArray[indexPath.section];
         headerView.backgroundColor = kWhiteColor;
-        
-        return headerView;
-    }
-    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kNormalFooterId forIndexPath:indexPath];
-        
-        if(headerView == nil){
-            headerView = [[UICollectionReusableView alloc] init];
-        }
-        if (indexPath.section == 11){
-            headerView.backgroundColor = kWhiteColor;
-        }else{
-            headerView.backgroundColor = kRGBColor(234, 234, 234);
-        }
-        
+//        headerView.backgroundColor = kBlackColor;
+
         return headerView;
     }
     return nil;

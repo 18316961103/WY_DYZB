@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		181081A01DD03F9E00DCE7A5 /* WYCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */; };
 		181081A31DD06AE300DCE7A5 /* RecommendGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181081A21DD06AE300DCE7A5 /* RecommendGameCell.m */; };
+		181081A61DD06C6700DCE7A5 /* RecommendGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181081A51DD06C6700DCE7A5 /* RecommendGameView.m */; };
 		1895B4D31DCC8EA3004F455A /* NSDictionary+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */; };
 		1895B4D41DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CA1DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m */; };
 		1895B4D51DCC8EA3004F455A /* UIButton+MoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CC1DCC8EA3004F455A /* UIButton+MoreButton.m */; };
@@ -31,6 +32,7 @@
 		1895B5071DCC8F18004F455A /* RecommendYanzhiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B5021DCC8F18004F455A /* RecommendYanzhiCell.m */; };
 		1895B50A1DCC8F2F004F455A /* DYLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B5091DCC8F2F004F455A /* DYLiveViewController.m */; };
 		1895B50D1DCC8F4C004F455A /* DYFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B50C1DCC8F4C004F455A /* DYFollowViewController.m */; };
+		18AA25781DD1B018007F5382 /* RecommendGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA25771DD1B018007F5382 /* RecommendGameModel.m */; };
 		18C6A4561DB86FB300BE7519 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6A4551DB86FB300BE7519 /* main.m */; };
 		18C6A4591DB86FB300BE7519 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6A4581DB86FB300BE7519 /* AppDelegate.m */; };
 		18C6A45C1DB86FB300BE7519 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6A45B1DB86FB300BE7519 /* ViewController.m */; };
@@ -46,6 +48,8 @@
 		1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCarouselView.m; sourceTree = "<group>"; };
 		181081A11DD06AE300DCE7A5 /* RecommendGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendGameCell.h; sourceTree = "<group>"; };
 		181081A21DD06AE300DCE7A5 /* RecommendGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendGameCell.m; sourceTree = "<group>"; };
+		181081A41DD06C6700DCE7A5 /* RecommendGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendGameView.h; sourceTree = "<group>"; };
+		181081A51DD06C6700DCE7A5 /* RecommendGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendGameView.m; sourceTree = "<group>"; };
 		1895B4C71DCC8EA3004F455A /* NSDictionary+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Unicode.h"; sourceTree = "<group>"; };
 		1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Unicode.m"; sourceTree = "<group>"; };
 		1895B4C91DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+NavigationButton.h"; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		1895B50B1DCC8F4C004F455A /* DYFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFollowViewController.h; sourceTree = "<group>"; };
 		1895B50C1DCC8F4C004F455A /* DYFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFollowViewController.m; sourceTree = "<group>"; };
 		1895B50E1DCC8F8A004F455A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		18AA25761DD1B018007F5382 /* RecommendGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendGameModel.h; sourceTree = "<group>"; };
+		18AA25771DD1B018007F5382 /* RecommendGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendGameModel.m; sourceTree = "<group>"; };
 		18C6A4511DB86FB300BE7519 /* WY_DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WY_DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C6A4551DB86FB300BE7519 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18C6A4571DB86FB300BE7519 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 				1895B5001DCC8F18004F455A /* RecommendReusableView.m */,
 				181081A11DD06AE300DCE7A5 /* RecommendGameCell.h */,
 				181081A21DD06AE300DCE7A5 /* RecommendGameCell.m */,
+				181081A41DD06C6700DCE7A5 /* RecommendGameView.h */,
+				181081A51DD06C6700DCE7A5 /* RecommendGameView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +372,8 @@
 			children = (
 				1895B4F61DCC8F0F004F455A /* YanZhiModel.h */,
 				1895B4F71DCC8F0F004F455A /* YanZhiModel.m */,
+				18AA25761DD1B018007F5382 /* RecommendGameModel.h */,
+				18AA25771DD1B018007F5382 /* RecommendGameModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,6 +598,7 @@
 				1895B50A1DCC8F2F004F455A /* DYLiveViewController.m in Sources */,
 				1895B4D71DCC8EA3004F455A /* UIView+Frame.m in Sources */,
 				1895B4F31DCC8F06004F455A /* FunViewController.m in Sources */,
+				18AA25781DD1B018007F5382 /* RecommendGameModel.m in Sources */,
 				18C6A45C1DB86FB300BE7519 /* ViewController.m in Sources */,
 				1895B4F41DCC8F06004F455A /* GameViewController.m in Sources */,
 				1895B4F11DCC8F06004F455A /* DYHomeViewController.m in Sources */,
@@ -596,6 +607,7 @@
 				18C6A4591DB86FB300BE7519 /* AppDelegate.m in Sources */,
 				1895B4E31DCC8EDE004F455A /* DYMineViewController.m in Sources */,
 				1895B4E01DCC8EC1004F455A /* NetworkSingleton.m in Sources */,
+				181081A61DD06C6700DCE7A5 /* RecommendGameView.m in Sources */,
 				1895B4D41DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m in Sources */,
 				1895B5061DCC8F18004F455A /* RecommendReusableView.m in Sources */,
 				18C6A4561DB86FB300BE7519 /* main.m in Sources */,
