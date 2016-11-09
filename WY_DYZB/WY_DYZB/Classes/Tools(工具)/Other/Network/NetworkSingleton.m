@@ -31,7 +31,7 @@
     return manager;
 }
 
-#pragma mark - 获取首页的推荐、颜值、其他的数据
+#pragma mark - 获取首页-推荐-最热、颜值、其他的数据
 - (void)getRecommendDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
     AFHTTPRequestOperationManager *manager = [self baseHttpRequest];
@@ -164,8 +164,26 @@
         NSLog_Cus(@"errorStr=====%@",errorStr);
         failureBlock(errorStr);
     }];
-    
 }
+
+#pragma mark - 获取首页-游戏的数据
+- (void)getHomeGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    AFHTTPRequestOperationManager *manager = [self baseHttpRequest];
+    
+    NSString *url = @"http://capi.douyucdn.cn/api/homeCate/getHotRoom?identification=ba08216f13dd1742157412386eee1225&client_sys=ios";
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];     // IOS-9之前会报警告
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSArray *dataArray = [responseObject objectForKey:@"data"];
+        successBlock(dataArray);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        NSLog_Cus(@"error = %@",errorStr);
+        failureBlock(errorStr);
+    }];
+}
+
 #pragma mark - 获取当前时间戳
 - (NSString *)GetNowTimes
 {

@@ -49,7 +49,7 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:kRedColor];
+    [self.view setBackgroundColor:kWhiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -68,6 +68,7 @@
 
 #pragma mark - 发送请求得到推荐数据
 - (void)sendRequest{
+    // 请求无限轮播的图片数据
     [[NetworkSingleton sharedManager] getRecommendCycleDataWithSuccessBlock:^(id response) {
         NSArray *dataArray = [response objectForKey:@"data"];
         for (int i = 0; i < dataArray.count; i++) {
@@ -82,7 +83,7 @@
     } failureBlock:^(NSString *error) {
         NSLog_Cus(@"error = %@",error);
     }];
-    
+    // 请求直播数据
     [[NetworkSingleton sharedManager] getRecommendDataWithSuccessBlock:^(id response) {
         NSArray *dataArray = response;
         
@@ -109,7 +110,7 @@
     [self.view addSubview:self.collectionView];
     [self.collectionView addSubview:self.recommendCycleView];
     [self.collectionView addSubview:self.recommendGameView];
-    self.recommendGameView.dataArray = _otherArray;
+    self.recommendGameView.dataArray = _otherArray;     // 游戏的推荐
     self.collectionView.contentInset = UIEdgeInsetsMake(kCycleHeight + kGameHeight, 0, 0, 0);
 }
 
@@ -121,9 +122,9 @@
         // 创建布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         
-        layout.itemSize = CGSizeMake(kItemW, kNormalItemH);
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = kItemMargin;
+        layout.itemSize = CGSizeMake(kItemW, kNormalItemH);     // 设置每个cell的大小
+        layout.minimumLineSpacing = 0;          //行间距(最小值)
+        layout.minimumInteritemSpacing = kItemMargin;   //item间距(最小值)
         layout.headerReferenceSize = CGSizeMake(kScreenWidth, kHeaderViewH);
 //        layout.footerReferenceSize = CGSizeMake(kScreenWidth, kFooterViewH);
         layout.sectionInset = UIEdgeInsetsMake(0, kItemMargin, 0, kItemMargin);
@@ -166,13 +167,11 @@
 }
 
 #pragma mark - UICollectionViewDatasource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1 + 1 + _otherArray.count - 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0){
         return 8;
     }
@@ -180,8 +179,7 @@
     return 4;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]){
         RecommendReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kNormalHeaderId forIndexPath:indexPath];
         
@@ -196,8 +194,8 @@
             headerView.iconImageView.image = [UIImage imageNamed:@"home_header_normal"];
         }
         headerView.titleLab.text = _headerTitleArray[indexPath.section];
+        
         headerView.backgroundColor = kWhiteColor;
-//        headerView.backgroundColor = kBlackColor;
 
         return headerView;
     }
@@ -205,16 +203,14 @@
 }
 
 //定义每个UICollectionViewCell 的大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
         return CGSizeMake(kItemW, kPrettyItemH);
     }
     return CGSizeMake(kItemW, kNormalItemH);
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         
         RecommendCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellId forIndexPath:indexPath];
@@ -272,8 +268,7 @@
     return nil;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 

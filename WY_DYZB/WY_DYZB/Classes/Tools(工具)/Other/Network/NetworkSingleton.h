@@ -22,4 +22,6 @@ typedef void(^FailureBlock)(NSString *error);
 - (void)getRecommendDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 /** 获取首页-推荐-无限轮播的数据*/
 - (void)getRecommendCycleDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/** 获取首页-游戏的数据*/
+- (void)getHomeGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end
