@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		181081A01DD03F9E00DCE7A5 /* WYCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */; };
+		188B79B11DD41C050097B78A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B79B01DD41C050097B78A /* BaseViewController.m */; };
 		1895B4D31DCC8EA3004F455A /* NSDictionary+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */; };
 		1895B4D41DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CA1DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m */; };
 		1895B4D51DCC8EA3004F455A /* UIButton+MoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CC1DCC8EA3004F455A /* UIButton+MoreButton.m */; };
@@ -18,11 +19,6 @@
 		1895B4E31DCC8EDE004F455A /* DYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4E21DCC8EDE004F455A /* DYMineViewController.m */; };
 		1895B4E61DCC8EF7004F455A /* DYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4E51DCC8EF7004F455A /* DYMainViewController.m */; };
 		1895B4F11DCC8F06004F455A /* DYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4E81DCC8F06004F455A /* DYHomeViewController.m */; };
-		1895B4F21DCC8F06004F455A /* EntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4EA1DCC8F06004F455A /* EntertainmentViewController.m */; };
-		1895B4F31DCC8F06004F455A /* FunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4EC1DCC8F06004F455A /* FunViewController.m */; };
-		1895B4F41DCC8F06004F455A /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4EE1DCC8F06004F455A /* GameViewController.m */; };
-		1895B4F51DCC8F06004F455A /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4F01DCC8F06004F455A /* RecommendViewController.m */; };
-		1895B4F81DCC8F0F004F455A /* YanZhiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4F71DCC8F0F004F455A /* YanZhiModel.m */; };
 		1895B5031DCC8F18004F455A /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4FA1DCC8F18004F455A /* PageContentView.m */; };
 		1895B5041DCC8F18004F455A /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4FC1DCC8F18004F455A /* PageTitleView.m */; };
 		1895B50A1DCC8F2F004F455A /* DYLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B5091DCC8F2F004F455A /* DYLiveViewController.m */; };
@@ -42,12 +38,20 @@
 		18C6A4621DB86FB300BE7519 /* WY_DYZB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18C6A4601DB86FB300BE7519 /* WY_DYZB.xcdatamodeld */; };
 		18C6A4641DB86FB300BE7519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C6A4631DB86FB300BE7519 /* Assets.xcassets */; };
 		18C6A4671DB86FB300BE7519 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C6A4651DB86FB300BE7519 /* LaunchScreen.storyboard */; };
+		18EA9C631DD3639000BAB2AA /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C621DD3639000BAB2AA /* RecommendViewController.m */; };
+		18EA9C661DD3639900BAB2AA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C651DD3639900BAB2AA /* GameViewController.m */; };
+		18EA9C691DD363A500BAB2AA /* FunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C681DD363A500BAB2AA /* FunViewController.m */; };
+		18EA9C6C1DD363AF00BAB2AA /* EntertainmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C6B1DD363AF00BAB2AA /* EntertainmentViewController.m */; };
+		18EA9C731DD3645300BAB2AA /* YanZhiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C721DD3645300BAB2AA /* YanZhiModel.m */; };
+		18EA9C761DD373C000BAB2AA /* AmuseMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA9C751DD373C000BAB2AA /* AmuseMenuViewCell.m */; };
 		AF73CCC8D68452709FDDE585 /* Pods_WY_DYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2F9CFF564EF666646F106E /* Pods_WY_DYZB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1810819E1DD03F9E00DCE7A5 /* WYCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYCarouselView.h; sourceTree = "<group>"; };
 		1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCarouselView.m; sourceTree = "<group>"; };
+		188B79AF1DD41C050097B78A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		188B79B01DD41C050097B78A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		1895B4C71DCC8EA3004F455A /* NSDictionary+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Unicode.h"; sourceTree = "<group>"; };
 		1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Unicode.m"; sourceTree = "<group>"; };
 		1895B4C91DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+NavigationButton.h"; sourceTree = "<group>"; };
@@ -69,16 +73,6 @@
 		1895B4E51DCC8EF7004F455A /* DYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYMainViewController.m; sourceTree = "<group>"; };
 		1895B4E71DCC8F06004F455A /* DYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHomeViewController.h; sourceTree = "<group>"; };
 		1895B4E81DCC8F06004F455A /* DYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHomeViewController.m; sourceTree = "<group>"; };
-		1895B4E91DCC8F06004F455A /* EntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntertainmentViewController.h; sourceTree = "<group>"; };
-		1895B4EA1DCC8F06004F455A /* EntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntertainmentViewController.m; sourceTree = "<group>"; };
-		1895B4EB1DCC8F06004F455A /* FunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunViewController.h; sourceTree = "<group>"; };
-		1895B4EC1DCC8F06004F455A /* FunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunViewController.m; sourceTree = "<group>"; };
-		1895B4ED1DCC8F06004F455A /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		1895B4EE1DCC8F06004F455A /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		1895B4EF1DCC8F06004F455A /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
-		1895B4F01DCC8F06004F455A /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
-		1895B4F61DCC8F0F004F455A /* YanZhiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanZhiModel.h; sourceTree = "<group>"; };
-		1895B4F71DCC8F0F004F455A /* YanZhiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanZhiModel.m; sourceTree = "<group>"; };
 		1895B4F91DCC8F18004F455A /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
 		1895B4FA1DCC8F18004F455A /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
 		1895B4FB1DCC8F18004F455A /* PageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTitleView.h; sourceTree = "<group>"; };
@@ -115,6 +109,18 @@
 		18C6A4631DB86FB300BE7519 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C6A4661DB86FB300BE7519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C6A4681DB86FB300BE7519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18EA9C611DD3639000BAB2AA /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		18EA9C621DD3639000BAB2AA /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		18EA9C641DD3639900BAB2AA /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		18EA9C651DD3639900BAB2AA /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		18EA9C671DD363A500BAB2AA /* FunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunViewController.h; sourceTree = "<group>"; };
+		18EA9C681DD363A500BAB2AA /* FunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunViewController.m; sourceTree = "<group>"; };
+		18EA9C6A1DD363AF00BAB2AA /* EntertainmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntertainmentViewController.h; sourceTree = "<group>"; };
+		18EA9C6B1DD363AF00BAB2AA /* EntertainmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntertainmentViewController.m; sourceTree = "<group>"; };
+		18EA9C711DD3645300BAB2AA /* YanZhiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanZhiModel.h; sourceTree = "<group>"; };
+		18EA9C721DD3645300BAB2AA /* YanZhiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanZhiModel.m; sourceTree = "<group>"; };
+		18EA9C741DD373C000BAB2AA /* AmuseMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmuseMenuViewCell.h; sourceTree = "<group>"; };
+		18EA9C751DD373C000BAB2AA /* AmuseMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmuseMenuViewCell.m; sourceTree = "<group>"; };
 		9D8DD97898D0F002B7FD1A8B /* Pods-WY_DYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WY_DYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WY_DYZB/Pods-WY_DYZB.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2F9CFF564EF666646F106E /* Pods_WY_DYZB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WY_DYZB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8308710EA3A4041FB66701 /* Pods-WY_DYZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WY_DYZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-WY_DYZB/Pods-WY_DYZB.release.xcconfig"; sourceTree = "<group>"; };
@@ -378,16 +384,14 @@
 		18C6A4781DB8AC3A00BE7519 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				188B79AF1DD41C050097B78A /* BaseViewController.h */,
+				188B79B01DD41C050097B78A /* BaseViewController.m */,
 				1895B4E71DCC8F06004F455A /* DYHomeViewController.h */,
 				1895B4E81DCC8F06004F455A /* DYHomeViewController.m */,
-				1895B4EF1DCC8F06004F455A /* RecommendViewController.h */,
-				1895B4F01DCC8F06004F455A /* RecommendViewController.m */,
-				1895B4E91DCC8F06004F455A /* EntertainmentViewController.h */,
-				1895B4EA1DCC8F06004F455A /* EntertainmentViewController.m */,
-				1895B4EB1DCC8F06004F455A /* FunViewController.h */,
-				1895B4EC1DCC8F06004F455A /* FunViewController.m */,
-				1895B4ED1DCC8F06004F455A /* GameViewController.h */,
-				1895B4EE1DCC8F06004F455A /* GameViewController.m */,
+				18EA9C601DD3632100BAB2AA /* Recommend */,
+				18EA9C5F1DD3631A00BAB2AA /* Game */,
+				18EA9C5E1DD3631100BAB2AA /* Entertainment */,
+				18EA9C5D1DD3630800BAB2AA /* Fun */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +403,8 @@
 				1895B4FA1DCC8F18004F455A /* PageContentView.m */,
 				1895B4FB1DCC8F18004F455A /* PageTitleView.h */,
 				1895B4FC1DCC8F18004F455A /* PageTitleView.m */,
+				18EA9C741DD373C000BAB2AA /* AmuseMenuViewCell.h */,
+				18EA9C751DD373C000BAB2AA /* AmuseMenuViewCell.m */,
 				18A12D061DD323E800C9C4F7 /* Recommend */,
 				18A12D051DD323E000C9C4F7 /* Game */,
 				18A12D041DD323D800C9C4F7 /* Entertainment */,
@@ -410,12 +416,14 @@
 		18C6A47A1DB8AC4C00BE7519 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1895B4F61DCC8F0F004F455A /* YanZhiModel.h */,
-				1895B4F71DCC8F0F004F455A /* YanZhiModel.m */,
 				18AA25761DD1B018007F5382 /* RecommendGameModel.h */,
 				18AA25771DD1B018007F5382 /* RecommendGameModel.m */,
 				18A12D001DD31E7200C9C4F7 /* ReusableModel.h */,
 				18A12D011DD31E7200C9C4F7 /* ReusableModel.m */,
+				18EA9C701DD3641000BAB2AA /* Recommend */,
+				18EA9C6F1DD3640A00BAB2AA /* Game */,
+				18EA9C6E1DD3640200BAB2AA /* Entertainment */,
+				18EA9C6D1DD363F900BAB2AA /* Fun */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +495,72 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18EA9C5D1DD3630800BAB2AA /* Fun */ = {
+			isa = PBXGroup;
+			children = (
+				18EA9C671DD363A500BAB2AA /* FunViewController.h */,
+				18EA9C681DD363A500BAB2AA /* FunViewController.m */,
+			);
+			path = Fun;
+			sourceTree = "<group>";
+		};
+		18EA9C5E1DD3631100BAB2AA /* Entertainment */ = {
+			isa = PBXGroup;
+			children = (
+				18EA9C6A1DD363AF00BAB2AA /* EntertainmentViewController.h */,
+				18EA9C6B1DD363AF00BAB2AA /* EntertainmentViewController.m */,
+			);
+			path = Entertainment;
+			sourceTree = "<group>";
+		};
+		18EA9C5F1DD3631A00BAB2AA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				18EA9C641DD3639900BAB2AA /* GameViewController.h */,
+				18EA9C651DD3639900BAB2AA /* GameViewController.m */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18EA9C601DD3632100BAB2AA /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				18EA9C611DD3639000BAB2AA /* RecommendViewController.h */,
+				18EA9C621DD3639000BAB2AA /* RecommendViewController.m */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		18EA9C6D1DD363F900BAB2AA /* Fun */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fun;
+			sourceTree = "<group>";
+		};
+		18EA9C6E1DD3640200BAB2AA /* Entertainment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entertainment;
+			sourceTree = "<group>";
+		};
+		18EA9C6F1DD3640A00BAB2AA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18EA9C701DD3641000BAB2AA /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				18EA9C711DD3645300BAB2AA /* YanZhiModel.h */,
+				18EA9C721DD3645300BAB2AA /* YanZhiModel.m */,
+			);
+			path = Recommend;
 			sourceTree = "<group>";
 		};
 		68F2D85C3DAE427F922D0B60 /* Frameworks */ = {
@@ -629,37 +703,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				1895B4D51DCC8EA3004F455A /* UIButton+MoreButton.m in Sources */,
+				18EA9C761DD373C000BAB2AA /* AmuseMenuViewCell.m in Sources */,
 				1895B4E61DCC8EF7004F455A /* DYMainViewController.m in Sources */,
 				18A12D121DD3241200C9C4F7 /* RecommendGameCell.m in Sources */,
 				18A12D151DD3241200C9C4F7 /* RecommendYanzhiCell.m in Sources */,
-				1895B4F21DCC8F06004F455A /* EntertainmentViewController.m in Sources */,
 				1895B5031DCC8F18004F455A /* PageContentView.m in Sources */,
 				1895B5041DCC8F18004F455A /* PageTitleView.m in Sources */,
+				188B79B11DD41C050097B78A /* BaseViewController.m in Sources */,
 				1895B4D31DCC8EA3004F455A /* NSDictionary+Unicode.m in Sources */,
 				18C6A4621DB86FB300BE7519 /* WY_DYZB.xcdatamodeld in Sources */,
 				18A12D181DD3244200C9C4F7 /* GameHeaderView.m in Sources */,
 				1895B50A1DCC8F2F004F455A /* DYLiveViewController.m in Sources */,
+				18EA9C661DD3639900BAB2AA /* GameViewController.m in Sources */,
 				1895B4D71DCC8EA3004F455A /* UIView+Frame.m in Sources */,
-				1895B4F31DCC8F06004F455A /* FunViewController.m in Sources */,
 				18AA25781DD1B018007F5382 /* RecommendGameModel.m in Sources */,
 				18A12D111DD3241200C9C4F7 /* RecommendCollectionViewCell.m in Sources */,
+				18EA9C691DD363A500BAB2AA /* FunViewController.m in Sources */,
 				18C6A45C1DB86FB300BE7519 /* ViewController.m in Sources */,
-				1895B4F41DCC8F06004F455A /* GameViewController.m in Sources */,
 				1895B4F11DCC8F06004F455A /* DYHomeViewController.m in Sources */,
 				18A12D141DD3241200C9C4F7 /* RecommendReusableView.m in Sources */,
-				1895B4F81DCC8F0F004F455A /* YanZhiModel.m in Sources */,
 				181081A01DD03F9E00DCE7A5 /* WYCarouselView.m in Sources */,
 				18C6A4591DB86FB300BE7519 /* AppDelegate.m in Sources */,
+				18EA9C6C1DD363AF00BAB2AA /* EntertainmentViewController.m in Sources */,
 				1895B4E31DCC8EDE004F455A /* DYMineViewController.m in Sources */,
+				18EA9C631DD3639000BAB2AA /* RecommendViewController.m in Sources */,
 				18A12D131DD3241200C9C4F7 /* RecommendGameView.m in Sources */,
 				1895B4E01DCC8EC1004F455A /* NetworkSingleton.m in Sources */,
+				18EA9C731DD3645300BAB2AA /* YanZhiModel.m in Sources */,
 				1895B4D41DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m in Sources */,
 				18C6A4561DB86FB300BE7519 /* main.m in Sources */,
 				1895B4D81DCC8EA3004F455A /* UIView+Layer.m in Sources */,
 				1895B50D1DCC8F4C004F455A /* DYFollowViewController.m in Sources */,
 				18A12D021DD31E7200C9C4F7 /* ReusableModel.m in Sources */,
 				1895B4D61DCC8EA3004F455A /* UIImage+RescaleImage.m in Sources */,
-				1895B4F51DCC8F06004F455A /* RecommendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

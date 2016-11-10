@@ -15,7 +15,7 @@
 #import "UIBarButtonItem+NavigationButton.h"
 #import "UIButton+MoreButton.h"
 #import "NSDictionary+Unicode.h"
-
+#import "BaseViewController.h"
 // 自动布局
 #import "UIView+SDAutoLayout.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"

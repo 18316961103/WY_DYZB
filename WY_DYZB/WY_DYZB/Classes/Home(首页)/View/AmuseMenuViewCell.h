@@ -1,5 +1,5 @@
 //
-//  GameHeaderView.h
+//  AmuseMenuViewCell.h
 //  WY_DYZB
 //
 //  Created by apple on 16/11/9.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameHeaderView : UIView
+@interface AmuseMenuViewCell : UICollectionViewCell
 
-/** 展现数据*/
 @property (strong, nonatomic) NSArray *dataArray;
 
 @end

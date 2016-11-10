@@ -38,6 +38,8 @@
 #define kCommonTintColor [UIColor colorWithRed:0.42f green:0.33f blue:0.27f alpha:1.00f]
 #define kCommonBgColor [UIColor colorWithRed:0.86f green:0.85f blue:0.80f alpha:1.00f]
 #define kCommonHighLightRedColor [UIColor colorWithRed:1.00f green:0.49f blue:0.65f alpha:1.00f]
+/** 随机颜色*/
+#define kRandomColor kRGBColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
 /***  当前屏幕宽度 */
 #define kScreenWidth  [[UIScreen mainScreen] bounds].size.width
@@ -55,6 +57,10 @@
 #define kStatusBarH 20
 #define kNavigationBarH 44
 #define kTabbarH 44
+/** 注册collectionView的cellID*/
+#define kNormalCellId @"CollectionNormalCellId"   
+/** 注册collectionView的headerID*/
+#define kNormalHeaderId @"CollectionNormalHeaderId"
 
 //调试模式下输入DLog，发布后不再输入。
 #ifndef __OPTIMIZE__

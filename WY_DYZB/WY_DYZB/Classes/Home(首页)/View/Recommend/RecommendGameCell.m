@@ -45,7 +45,7 @@
 
     self.titleLab.sd_layout
     .topSpaceToView(self.iconImgView, 0*KPixel)
-    .bottomSpaceToView(self,10*KPixel)
+    .bottomSpaceToView(self,0*KPixel)
     .widthIs(self.width);
 }
 
@@ -75,8 +75,12 @@
     _recommendGameModel = recommendGameModel;
     
     if (_recommendGameModel) {
-        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_recommendGameModel.icon_url] placeholderImage:kDefaultImage];
         _titleLab.text = _recommendGameModel.tag_name;
+        if ([_titleLab.text isEqualToString:@"更多分类"]) {
+            _iconImgView.image = [UIImage imageNamed:@"home_column_more"];
+        }else{
+            [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_recommendGameModel.icon_url] placeholderImage:kDefaultImage];
+        }
     }
 }
 
