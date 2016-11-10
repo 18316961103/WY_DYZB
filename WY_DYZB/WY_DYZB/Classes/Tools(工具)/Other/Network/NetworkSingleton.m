@@ -56,7 +56,6 @@
         NSString *urlStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];      // IOS9之前会警告
 
         [manager GET:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject){
-//            successBlock(responseObject);
             
             tuijianArray = [responseObject objectForKey:@"data"];
             
@@ -70,10 +69,8 @@
             
             dispatch_group_leave(group);
 
-//            failureBlock(errorStr);
         }];
     });
-    
     
     dispatch_group_enter(group);
 
@@ -113,7 +110,6 @@
         NSString *urlStr = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];      // IOS9之前会警告
         
         [manager GET:urlStr parameters:userInfo success:^(AFHTTPRequestOperation *operation, id responseObject){
-            //            successBlock(responseObject);
             
             otherArray = [responseObject objectForKey:@"data"];
             
@@ -129,7 +125,6 @@
             //            failureBlock(errorStr);
         }];
     });
-    
     
     dispatch_group_notify(group, queue, ^{
         NSLog_Cus(@"请求全部完成");
@@ -168,12 +163,47 @@
 
 #pragma mark - 获取首页-游戏的数据
 - (void)getHomeGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
-    AFHTTPRequestOperationManager *manager = [self baseHttpRequest];
     
     NSString *url = @"http://capi.douyucdn.cn/api/homeCate/getHotRoom?identification=ba08216f13dd1742157412386eee1225&client_sys=ios";
     
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];     // IOS-9之前会报警告
     
+    [self requestWithUrl:url successBlock:successBlock failureBlock:failureBlock];
+}
+
+#pragma mark - 获取首页-娱乐的数据
+- (void)getHomeEntertainmentDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString *url = @"http://capi.douyucdn.cn/api/homeCate/getHotRoom?identification=9acf9c6f117a4c2d02de30294ec29da9&client_sys=ios";
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];     // IOS-9之前会报警告
+    
+    [self requestWithUrl:url successBlock:successBlock failureBlock:failureBlock];
+}
+
+#pragma mark - 获取首页-手游的数据
+- (void)getHomeMobileGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString *url = @"http://capi.douyucdn.cn/api/homeCate/getHotRoom?identification=3e760da75be261a588c74c4830632360&client_sys=ios";
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];     // IOS-9之前会报警告
+    
+    [self requestWithUrl:url successBlock:successBlock failureBlock:failureBlock];
+}
+
+#pragma mark - 获取首页-趣玩的数据
+- (void)getHomeFunDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString *url = @"http://capi.douyucdn.cn/api/homeCate/getHotRoom?identification=393b245e8046605f6f881d415949494c&client_sys=ios";
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];     // IOS-9之前会报警告
+    
+    [self requestWithUrl:url successBlock:successBlock failureBlock:failureBlock];
+}
+
+- (void)requestWithUrl:(NSString *)url successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    AFHTTPRequestOperationManager *manager = [self baseHttpRequest];
+
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSArray *dataArray = [responseObject objectForKey:@"data"];
         successBlock(dataArray);

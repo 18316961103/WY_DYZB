@@ -13,6 +13,7 @@
 #import "GameViewController.h"
 #import "EntertainmentViewController.h"
 #import "FunViewController.h"
+#import "MobileGameController.h"
 
 @interface DYHomeViewController () <PageTitleClickDelegate,PageContentViewDelegate>
 
@@ -77,7 +78,7 @@
 #pragma mark - 设置标题view 
 - (void)setPageTitleView
 {
-    _pageTitleView = [[PageTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarH + kNavigationBarH, kScreenWidth, 60*KPixel) titles:@[@"推荐",@"游戏",@"娱乐",@"趣玩"]];
+    _pageTitleView = [[PageTitleView alloc] initWithFrame:CGRectMake(0, kStatusBarH + kNavigationBarH, kScreenWidth, 60*KPixel) titles:@[@"推荐",@"游戏",@"娱乐",@"手游",@"趣玩"]];
     
     _pageTitleView.delegate = self;
     
@@ -93,7 +94,7 @@
 #pragma mark - 设置首页滑动的View
 - (void)setPageContentView
 {
-    _contentView = [[PageContentView alloc] initWithFrame:CGRectMake(0, kStatusBarH + kNavigationBarH + 60*KPixel, kScreenWidth, kScreenHeight - kStatusBarH - kNavigationBarH - 60*KPixel - kTabbarH) parentController:self childVCArray:@[[[RecommendViewController alloc] init],[[GameViewController alloc] init],[[EntertainmentViewController alloc] init],[[FunViewController alloc] init]]];
+    _contentView = [[PageContentView alloc] initWithFrame:CGRectMake(0, kStatusBarH + kNavigationBarH + 60*KPixel, kScreenWidth, kScreenHeight - kStatusBarH - kNavigationBarH - 60*KPixel - kTabbarH) parentController:self childVCArray:@[[[RecommendViewController alloc] init],[[GameViewController alloc] init],[[EntertainmentViewController alloc] init],[[MobileGameController alloc] init],[[FunViewController alloc] init]]];
     
     _contentView.delegate = self;
     

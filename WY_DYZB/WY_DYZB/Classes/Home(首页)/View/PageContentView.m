@@ -8,7 +8,7 @@
 
 #import "PageContentView.h"
 
-static NSString const *ContentCellID = @"ContentCellID";
+#define kContentCellId @"ContentCellID"
 
 @interface PageContentView () <UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -45,7 +45,7 @@ static NSString const *ContentCellID = @"ContentCellID";
         _collectionView.dataSource = self;
         _collectionView.scrollsToTop = NO;  // scrollsToTop是UIScrollView的一个属性，主要用于点击设备的状态栏时，是scrollsToTop == YES的控件滚动返回至顶部
         
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ContentCellID];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kContentCellId];
     }
     return _collectionView;
 }
@@ -96,7 +96,7 @@ static NSString const *ContentCellID = @"ContentCellID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // 创建cell
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ContentCellID forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kContentCellId forIndexPath:indexPath];
     
     // 设置内容前先情况复用的数据
     for (UIView *view in cell.contentView.subviews)
@@ -171,7 +171,6 @@ static NSString const *ContentCellID = @"ContentCellID";
     if ([_delegate respondsToSelector:@selector(contentScrollWithProgress:sourceIndex:targetIndex:)]){
         [_delegate contentScrollWithProgress:progress sourceIndex:sourceIndex targetIndex:targetIndex];
     }
-
 }
 
 #pragma mark - 对外暴露的方法

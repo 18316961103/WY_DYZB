@@ -24,4 +24,10 @@ typedef void(^FailureBlock)(NSString *error);
 - (void)getRecommendCycleDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 /** 获取首页-游戏的数据*/
 - (void)getHomeGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/** 获取首页-娱乐的数据*/
+- (void)getHomeEntertainmentDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/** 获取首页-趣玩的数据*/ 
+- (void)getHomeFunDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/** 获取首页-手游的数据*/
+- (void)getHomeMobileGameDataWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end

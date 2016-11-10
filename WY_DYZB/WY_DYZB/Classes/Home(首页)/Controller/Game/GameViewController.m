@@ -7,22 +7,12 @@
 //
 
 #import "GameViewController.h"
-#import "RecommendReusableView.h"
-#import "RecommendCollectionViewCell.h"
-#import "ReusableModel.h"
-#import "GameHeaderView.h"
 
-#define kItemMargin 10                                  // cell的间距
-#define kItemW ((kScreenWidth - 3 * kItemMargin) / 2)   // cell的宽度
-#define kNormalItemH (kItemW * 3 / 4)   // 普通cell的高度
-#define kHeaderViewH 80*KPixel           // header的高度
-#define kGameHeaderH 250*KPixel         // collectionVIew上方游戏类型View的高度
-
-@interface GameViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GameViewController ()
 {
     NSArray *_dataArray;        // 展现数据数组
 }
-//@property (strong, nonatomic) UICollectionView *collectionView;
+
 @property (strong, nonatomic) GameHeaderView *gameHeaderView;
 
 @end
@@ -32,9 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.view setBackgroundColor:kWhiteColor];
-    
+        
     // Do any additional setup after loading the view.
 }
 
@@ -45,8 +33,6 @@
         _dataArray = response;
         
         NSLog_Cus(@"dataArray.count = %ld",_dataArray.count);
-        
-//        [self setUpSubViews];   // 设置子控件
         
         NSMutableArray *headerArray = [[NSMutableArray alloc] initWithArray:_dataArray];
         if (headerArray.count) {// 去掉第一个最热的数据
@@ -70,31 +56,11 @@
 #pragma mark - 重写父类方法
 - (void)setUpSubViews{
     [super setUpSubViews];  // 调用父类方法
-//    [self.view addSubview:self.collectionView];
     [self.collectionView addSubview:self.gameHeaderView];
     self.collectionView.contentInset = UIEdgeInsetsMake(kGameHeaderH, 0, 0, 0);
 }
 
 #pragma mark - 懒加载
-//- (UICollectionView *)collectionView{
-//    if (!_collectionView) {
-//        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//        layout.itemSize = CGSizeMake(kItemW, kNormalItemH);
-//        layout.minimumLineSpacing = 0;      // 行间距
-//        layout.minimumInteritemSpacing = kItemMargin;       // cell间距
-//        layout.sectionInset = UIEdgeInsetsMake(0, kItemMargin, 0, kItemMargin);
-//        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kHeaderViewH);
-//        
-//        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabbarH - kNavigationBarH - kStatusBarH - 68*KPixel) collectionViewLayout:layout];
-//        _collectionView.delegate = self;
-//        _collectionView.dataSource = self;
-//        _collectionView.backgroundColor = kWhiteColor;
-//        [_collectionView registerClass:[RecommendCollectionViewCell class] forCellWithReuseIdentifier:kGameCellId];// 注册cell
-//        [_collectionView registerClass:[RecommendReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kGameHeaderId];    // 注册header
-//    }
-//    return _collectionView;
-//}
-
 - (GameHeaderView *)gameHeaderView{
     if (!_gameHeaderView) {
         _gameHeaderView = [[GameHeaderView alloc] initWithFrame:CGRectMake(0, -kGameHeaderH, kScreenWidth, kGameHeaderH)];
@@ -152,9 +118,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog_Cus(@"indexPath.row = %ld",indexPath.row);
-    
-    
+    NSLog_Cus(@"indexPath.row = %ld",indexPath.row);    
 }
 
 - (void)didReceiveMemoryWarning {

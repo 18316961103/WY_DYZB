@@ -74,6 +74,13 @@
 - (void)setDataArray:(NSArray *)dataArray{
     _dataArray = dataArray;
     
+    if (_dataArray.count <= 8) {// 如果个数小于8，隐藏分页
+        self.pageControl.hidden = YES;
+        self.collectionView.height = self.height;
+        UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+        layout.itemSize = CGSizeMake(self.width, self.height);
+    }
+    
     [self.collectionView reloadData];
 }
 
@@ -97,7 +104,7 @@
     
     NSMutableArray *tempDataArray = [[NSMutableArray alloc] init];
     
-    NSInteger upperLimit = (_dataArray.count >= ((indexPath.row + 1) * kItemCount)?((indexPath.row + 1) * kItemCount):(_dataArray.count-(indexPath.row * kItemCount))); // 判断当前组数据源是否大于((indexPath.row + 1) * 8)，如果大于等于则上限为((indexPath.row + 1) * 8)，如果不大于，则取_dataArray剩余的数据count为上限
+    NSInteger upperLimit = (_dataArray.count >= ((indexPath.row + 1) * kItemCount)?((indexPath.row + 1) * kItemCount):_dataArray.count); // 判断当前组数据源是否大于((indexPath.row + 1) * 8)，如果大于等于则上限为((indexPath.row + 1) * 8)，如果不大于，则取_dataArray剩余的数据count为上限
     
     for (NSInteger i = (indexPath.row * kItemCount); i < upperLimit; i++) {
         [tempDataArray addObject:_dataArray[i]];

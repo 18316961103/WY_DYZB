@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EntertainmentViewController : UIViewController
+@interface EntertainmentViewController : BaseViewController
 
 @end

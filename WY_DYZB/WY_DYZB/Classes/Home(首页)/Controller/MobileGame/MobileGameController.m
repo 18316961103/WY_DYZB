@@ -1,31 +1,30 @@
 //
-//  FunViewController.m
+//  MobileGameController.m
 //  WY_DYZB
 //
-//  Created by apple on 16/10/21.
+//  Created by apple on 16/11/10.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "FunViewController.h"
+#import "MobileGameController.h"
 
-@interface FunViewController ()
+@interface MobileGameController ()
 
 @property (strong, nonatomic) GameHeaderView *gameHeaderView;   // 顶部的headerView
 
 @end
 
-@implementation FunViewController
+@implementation MobileGameController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
     // Do any additional setup after loading the view.
 }
 
 #pragma mark - 重写父类的请求方法
 - (void)getDataRequest{
-    [[NetworkSingleton sharedManager] getHomeFunDataWithSuccessBlock:^(id response) {
+    [[NetworkSingleton sharedManager] getHomeMobileGameDataWithSuccessBlock:^(id response) {
         self.dataArray = response;
         [self finishRequest];
         NSMutableArray *headerArray = [[NSMutableArray alloc] initWithArray:self.dataArray];
@@ -44,20 +43,20 @@
     [super setUpSubViews];
     
     [self.collectionView addSubview:self.gameHeaderView];
-    self.collectionView.contentInset = UIEdgeInsetsMake(kGameHeaderH, 0, 0, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(kGameHeaderH-30*KPixel, 0, 0, 0);
 }
 
 #pragma mark - 懒加载
 - (GameHeaderView *)gameHeaderView{
     if (!_gameHeaderView) {
-        _gameHeaderView = [[GameHeaderView alloc] initWithFrame:CGRectMake(0, -kGameHeaderH, kScreenWidth, kGameHeaderH)];
+        _gameHeaderView = [[GameHeaderView alloc] initWithFrame:CGRectMake(0, -(kGameHeaderH-30*KPixel), kScreenWidth, kGameHeaderH-30*KPixel)];
     }
     return _gameHeaderView;
 }
 
 #pragma mark - UICollectionDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 6;
+    return 9;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -99,6 +98,7 @@
     
     return cell;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

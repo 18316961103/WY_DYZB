@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FunViewController : UIViewController
+@interface FunViewController : BaseViewController
 
 @end

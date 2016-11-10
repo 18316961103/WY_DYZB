@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		181081A01DD03F9E00DCE7A5 /* WYCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */; };
 		188B79B11DD41C050097B78A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B79B01DD41C050097B78A /* BaseViewController.m */; };
+		188B79B71DD457FA0097B78A /* MobileGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B79B61DD457FA0097B78A /* MobileGameController.m */; };
 		1895B4D31DCC8EA3004F455A /* NSDictionary+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */; };
 		1895B4D41DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CA1DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.m */; };
 		1895B4D51DCC8EA3004F455A /* UIButton+MoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895B4CC1DCC8EA3004F455A /* UIButton+MoreButton.m */; };
@@ -52,6 +53,8 @@
 		1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCarouselView.m; sourceTree = "<group>"; };
 		188B79AF1DD41C050097B78A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		188B79B01DD41C050097B78A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		188B79B51DD457FA0097B78A /* MobileGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGameController.h; sourceTree = "<group>"; };
+		188B79B61DD457FA0097B78A /* MobileGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileGameController.m; sourceTree = "<group>"; };
 		1895B4C71DCC8EA3004F455A /* NSDictionary+Unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Unicode.h"; sourceTree = "<group>"; };
 		1895B4C81DCC8EA3004F455A /* NSDictionary+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Unicode.m"; sourceTree = "<group>"; };
 		1895B4C91DCC8EA3004F455A /* UIBarButtonItem+NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+NavigationButton.h"; sourceTree = "<group>"; };
@@ -145,6 +148,29 @@
 				1810819F1DD03F9E00DCE7A5 /* WYCarouselView.m */,
 			);
 			path = WYCarousel;
+			sourceTree = "<group>";
+		};
+		188B79B21DD457700097B78A /* MobileGame */ = {
+			isa = PBXGroup;
+			children = (
+				188B79B51DD457FA0097B78A /* MobileGameController.h */,
+				188B79B61DD457FA0097B78A /* MobileGameController.m */,
+			);
+			path = MobileGame;
+			sourceTree = "<group>";
+		};
+		188B79B31DD457AE0097B78A /* MobileGame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MobileGame;
+			sourceTree = "<group>";
+		};
+		188B79B41DD457CE0097B78A /* MobileGame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MobileGame;
 			sourceTree = "<group>";
 		};
 		1895B4C61DCC8EA3004F455A /* Category */ = {
@@ -391,6 +417,7 @@
 				18EA9C601DD3632100BAB2AA /* Recommend */,
 				18EA9C5F1DD3631A00BAB2AA /* Game */,
 				18EA9C5E1DD3631100BAB2AA /* Entertainment */,
+				188B79B21DD457700097B78A /* MobileGame */,
 				18EA9C5D1DD3630800BAB2AA /* Fun */,
 			);
 			path = Controller;
@@ -408,6 +435,7 @@
 				18A12D061DD323E800C9C4F7 /* Recommend */,
 				18A12D051DD323E000C9C4F7 /* Game */,
 				18A12D041DD323D800C9C4F7 /* Entertainment */,
+				188B79B31DD457AE0097B78A /* MobileGame */,
 				18A12D031DD323D100C9C4F7 /* Fun */,
 			);
 			path = View;
@@ -423,6 +451,7 @@
 				18EA9C701DD3641000BAB2AA /* Recommend */,
 				18EA9C6F1DD3640A00BAB2AA /* Game */,
 				18EA9C6E1DD3640200BAB2AA /* Entertainment */,
+				188B79B41DD457CE0097B78A /* MobileGame */,
 				18EA9C6D1DD363F900BAB2AA /* Fun */,
 			);
 			path = Model;
@@ -716,6 +745,7 @@
 				1895B50A1DCC8F2F004F455A /* DYLiveViewController.m in Sources */,
 				18EA9C661DD3639900BAB2AA /* GameViewController.m in Sources */,
 				1895B4D71DCC8EA3004F455A /* UIView+Frame.m in Sources */,
+				188B79B71DD457FA0097B78A /* MobileGameController.m in Sources */,
 				18AA25781DD1B018007F5382 /* RecommendGameModel.m in Sources */,
 				18A12D111DD3241200C9C4F7 /* RecommendCollectionViewCell.m in Sources */,
 				18EA9C691DD363A500BAB2AA /* FunViewController.m in Sources */,
